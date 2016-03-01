@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9138FE101C44CE160016C03F /* libPushSDK-1.8.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9138FE0F1C44CE160016C03F /* libPushSDK-1.8.8.a */; };
+		3D27585C1C85D8490029BA5E /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D27585B1C85D8490029BA5E /* jpush-ios-2.1.0.a */; };
 		919F83301C44AB9D00D40C24 /* RCTJPush.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919F832F1C44AB9D00D40C24 /* RCTJPush.h */; };
 		919F83321C44AB9D00D40C24 /* RCTJPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 919F83311C44AB9D00D40C24 /* RCTJPush.m */; };
 /* End PBXBuildFile section */
@@ -26,8 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9138FE0E1C44CE160016C03F /* APService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APService.h; sourceTree = "<group>"; };
-		9138FE0F1C44CE160016C03F /* libPushSDK-1.8.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPushSDK-1.8.8.a"; sourceTree = "<group>"; };
+		3D27585A1C85D8490029BA5E /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		3D27585B1C85D8490029BA5E /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
 		919F832C1C44AB9D00D40C24 /* libRCTJPush.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTJPush.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		919F832F1C44AB9D00D40C24 /* RCTJPush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTJPush.h; sourceTree = "<group>"; };
 		919F83311C44AB9D00D40C24 /* RCTJPush.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTJPush.m; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9138FE101C44CE160016C03F /* libPushSDK-1.8.8.a in Frameworks */,
+				3D27585C1C85D8490029BA5E /* jpush-ios-2.1.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,8 +48,8 @@
 		9138FE0D1C44CE160016C03F /* JPushSDK */ = {
 			isa = PBXGroup;
 			children = (
-				9138FE0E1C44CE160016C03F /* APService.h */,
-				9138FE0F1C44CE160016C03F /* libPushSDK-1.8.8.a */,
+				3D27585A1C85D8490029BA5E /* JPUSHService.h */,
+				3D27585B1C85D8490029BA5E /* jpush-ios-2.1.0.a */,
 			);
 			path = JPushSDK;
 			sourceTree = "<group>";
