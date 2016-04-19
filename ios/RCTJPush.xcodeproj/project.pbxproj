@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D27585C1C85D8490029BA5E /* jpush-ios-2.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D27585B1C85D8490029BA5E /* jpush-ios-2.1.0.a */; };
+		3D7B49771CC5C5FD00A7FB7A /* jpush-ios-2.1.6.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7B49761CC5C5FD00A7FB7A /* jpush-ios-2.1.6.a */; };
 		919F83301C44AB9D00D40C24 /* RCTJPush.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 919F832F1C44AB9D00D40C24 /* RCTJPush.h */; };
 		919F83321C44AB9D00D40C24 /* RCTJPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 919F83311C44AB9D00D40C24 /* RCTJPush.m */; };
 /* End PBXBuildFile section */
@@ -27,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		3D27585A1C85D8490029BA5E /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
-		3D27585B1C85D8490029BA5E /* jpush-ios-2.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.0.a"; sourceTree = "<group>"; };
+		3D7B49761CC5C5FD00A7FB7A /* jpush-ios-2.1.6.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.6.a"; sourceTree = "<group>"; };
 		919F832C1C44AB9D00D40C24 /* libRCTJPush.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTJPush.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		919F832F1C44AB9D00D40C24 /* RCTJPush.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTJPush.h; sourceTree = "<group>"; };
 		919F83311C44AB9D00D40C24 /* RCTJPush.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTJPush.m; sourceTree = "<group>"; };
@@ -38,7 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D27585C1C85D8490029BA5E /* jpush-ios-2.1.0.a in Frameworks */,
+				3D7B49771CC5C5FD00A7FB7A /* jpush-ios-2.1.6.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,8 +48,8 @@
 		9138FE0D1C44CE160016C03F /* JPushSDK */ = {
 			isa = PBXGroup;
 			children = (
+				3D7B49761CC5C5FD00A7FB7A /* jpush-ios-2.1.6.a */,
 				3D27585A1C85D8490029BA5E /* JPUSHService.h */,
-				3D27585B1C85D8490029BA5E /* jpush-ios-2.1.0.a */,
 			);
 			path = JPushSDK;
 			sourceTree = "<group>";
