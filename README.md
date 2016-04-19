@@ -12,14 +12,16 @@ npm install react-native-jpush --save
 
 ### link
 ```bash
-rnpm link
+rnpm link react-native-jpush
 ```
 
-#### Note: rnpm requires node version 4.1 or higher
+#### Note: 
+* rnpm requires node version 4.1 or higher
+* Android SDK Build-tools 23.0.2 or higher
 
 
 ### iOS工程配置
-a.在工程target的`Build Phases->Link Binary with Libraries`中加入`liz.tbd、CoreTelephony.framework、Security.framework`
+a.在工程target的`Build Phases->Link Binary with Libraries`中加入`libz.tbd、CoreTelephony.framework、Security.framework`
 
 b.在你的工程中创建一个新的Property List文件，并将其命名为PushConfig.plist，文件所含字段如下：
 
