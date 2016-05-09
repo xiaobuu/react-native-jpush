@@ -29,6 +29,10 @@ RCT_EXPORT_MODULE();
 {
     if ((self = [super init])) {
         [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handlekNetworkDidLoginNotification:)
+                                                     name:kJPFNetworkDidLoginNotification
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(handleNetworkDidReceiveMessageNotification:)
                                                      name:kJPFNetworkDidReceiveMessageNotification
                                                    object:nil];
@@ -123,6 +127,13 @@ RCT_EXPORT_MODULE();
     
     [JPUSHService registerForRemoteNotificationTypes:types categories:nil];
 #endif
+}
+
+- (void)handlekNetworkDidLoginNotification:(NSNotification *)notification
+{
+    NSString *registrationID = [JPUSHService registrationID];
+    [_bridge.eventDispatcher sendDeviceEventWithName:@"kJPFNetworkDidLoginNotification"
+                                                body:RCTNullIfNil(registrationID)];
 }
 
 - (void)handleNetworkDidReceiveMessageNotification:(NSNotification *)notification

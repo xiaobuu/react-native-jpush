@@ -13,7 +13,7 @@ let _initialNotification = nativeModule &&
 export const JpushEventReceiveMessage = 'kJPFNetworkDidReceiveMessageNotification'
 export const JpushEventOpenMessage = 'kJPFNetworkDidOpenMessageNotification'
 export const JpushEventReceiveCustomMessage = 'kJPFNetworkDidReceiveCustomMessageNotification'
-
+export const JpushEventDidLoginNotification = 'kJPFNetworkDidLoginNotification'
 export default class JPushNotification {
 
     _data;
@@ -22,6 +22,7 @@ export default class JPushNotification {
         this._data = {};
 
         if (typeof nativeNotif === 'string') {
+            console.warn(nativeNotif);
             nativeNotif = JSON.parse(nativeNotif)
         }
 
@@ -60,9 +61,21 @@ export default class JPushNotification {
     static addEventListener(type: string, handler: Function) {
         checkListenerType(type)
 
+        if (type === JpushEventDidLoginNotification) {
+          const listener = DeviceEventEmitter.addListener(
+                type,
+                (note) => {
+                    handler(note);
+                }
+            );
+            _notifHandlers.push(listener)
+            return listener;
+        }
+        
         if (type === JpushEventOpenMessage && _initialNotification) {
             handler(this.popInitialNotification())
         }
+        
         const listener = DeviceEventEmitter.addListener(
             type,
             (note) => {
@@ -162,8 +175,8 @@ export default class JPushNotification {
 
 function checkListenerType(type) {
     invariant(
-        type === JpushEventReceiveMessage || type === JpushEventOpenMessage || type === JpushEventReceiveCustomMessage,
-        'JPushNotification only supports `JpushEventReceiveMessage` ,`JpushEventOpenMessage`, `JpushEventReceiveCustomMessage`, events'
+        type === JpushEventDidLoginNotification || type === JpushEventReceiveMessage || type === JpushEventOpenMessage || type === JpushEventReceiveCustomMessage,
+        'JPushNotification only supports `JpushEventDidLoginNotification`, `JpushEventReceiveMessage` ,`JpushEventOpenMessage`, `JpushEventReceiveCustomMessage`, events'
     );
 }
 

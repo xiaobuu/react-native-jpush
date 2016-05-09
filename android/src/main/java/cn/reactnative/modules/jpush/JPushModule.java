@@ -138,6 +138,18 @@ public class JPushModule extends ReactContextBaseJavaModule {
                 mIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(mIntent);
             }
+        } else if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {  
+            String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);  
+            Log.d(TAG, "[JPushReceiver] 接收Registration Id : " + regId);  
+            JPushModule.sendEvent("kJPFNetworkDidLoginNotification", bundle);
+            if (gModules != null) {
+                // WritableMap message = Arguments.fromBundle(bundle);
+                DeviceEventManagerModule.RCTDeviceEventEmitter emitter = gModules.getReactApplicationContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
+                emitter.emit(eventName, regId);
+                return;
+            }
+            //send the Registration Id to your server...  
+                          
         } else {
             Log.d(TAG, "Unhandled intent - " + intent.getAction());
         }
