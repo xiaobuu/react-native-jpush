@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reactnativecn/react-native-jpush.git"
+    "url": "git+https://github.com/xiaobuu/react-native-jpush.git"
   },
   "keywords": [
     "react-native",
@@ -16,10 +16,10 @@
     "android",
     "jpush"
   ],
-  "author": "lvbingru",
+  "author": "lvbingru, xiaobuu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/reactnativecn/react-native-jpush/issues"
+    "url": "https://github.com/xiaobuu/react-native-jpush/issues"
   },
-  "homepage": "https://github.com/reactnativecn/react-native-jpush#readme"
+  "homepage": "https://github.com/xiaobuu/react-native-jpush#readme"
 }

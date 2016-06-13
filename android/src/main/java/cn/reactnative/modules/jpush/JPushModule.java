@@ -141,11 +141,10 @@ public class JPushModule extends ReactContextBaseJavaModule {
         } else if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {  
             String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);  
             Log.d(TAG, "[JPushReceiver] 接收Registration Id : " + regId);  
-            JPushModule.sendEvent("kJPFNetworkDidLoginNotification", bundle);
             if (gModules != null) {
                 // WritableMap message = Arguments.fromBundle(bundle);
                 DeviceEventManagerModule.RCTDeviceEventEmitter emitter = gModules.getReactApplicationContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
-                emitter.emit(eventName, regId);
+                emitter.emit("kJPFNetworkDidLoginNotification", regId);
                 return;
             }
             //send the Registration Id to your server...  
