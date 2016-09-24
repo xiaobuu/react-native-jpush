@@ -1,6 +1,6 @@
 {
   "name": "react-native-jpush",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "蜂房使用的极光推送模块",
   "main": "index.js",
   "scripts": {

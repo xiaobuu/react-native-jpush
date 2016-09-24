@@ -16,10 +16,10 @@ export const JpushEventReceiveCustomMessage = 'kJPFNetworkDidReceiveCustomMessag
 export const JpushEventDidLoginNotification = 'kJPFNetworkDidLoginNotification'
 export default class JPushNotification {
 
-    _data;
+    data;
 
     constructor(nativeNotif) {
-        this._data = {};
+        this.data = {};
 
         if (typeof nativeNotif === 'string') {
             console.warn(nativeNotif);
@@ -27,17 +27,17 @@ export default class JPushNotification {
         }
 
         if (nativeNotif) {
-            this._data = nativeNotif
+            this.data = nativeNotif
         }
     }
 
     static popInitialNotification() {
-        if (typeof _initialNotification === 'string') {
-          return JSON.parse(_initialNotification);
-        }
         const initialNotification = _initialNotification; /*&&
             new JPushNotification(_initialNotification);*/
         _initialNotification = null;
+        if (typeof initialNotification === 'string') {
+          return JSON.parse(initialNotification);
+        }
         return initialNotification;
     }
 
@@ -67,9 +67,7 @@ export default class JPushNotification {
         if (type === JpushEventDidLoginNotification) {
           const listener = DeviceEventEmitter.addListener(
                 type,
-                (note) => {
-                    handler(note);
-                }
+                handler
             );
             _notifHandlers.push(listener)
             return listener;
@@ -81,9 +79,7 @@ export default class JPushNotification {
 
         const listener = DeviceEventEmitter.addListener(
             type,
-            (note) => {
-                handler(note && new JPushNotification(note));
-            }
+            handler
         );
         _notifHandlers.push(listener)
         return listener;
