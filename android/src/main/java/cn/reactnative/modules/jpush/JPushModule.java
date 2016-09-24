@@ -138,17 +138,17 @@ public class JPushModule extends ReactContextBaseJavaModule {
                 mIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(mIntent);
             }
-        } else if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {  
-            String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);  
-            Log.d(TAG, "[JPushReceiver] 接收Registration Id : " + regId);  
+        } else if (JPushInterface.ACTION_REGISTRATION_ID.equals(intent.getAction())) {
+            String regId = bundle.getString(JPushInterface.EXTRA_REGISTRATION_ID);
+            Log.d(TAG, "[JPushReceiver] 接收Registration Id : " + regId);
             if (gModules != null) {
                 // WritableMap message = Arguments.fromBundle(bundle);
                 DeviceEventManagerModule.RCTDeviceEventEmitter emitter = gModules.getReactApplicationContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
                 emitter.emit("kJPFNetworkDidLoginNotification", regId);
                 return;
             }
-            //send the Registration Id to your server...  
-                          
+            //send the Registration Id to your server...
+
         } else {
             Log.d(TAG, "Unhandled intent - " + intent.getAction());
         }
@@ -246,10 +246,10 @@ public class JPushModule extends ReactContextBaseJavaModule {
             boolean isAppRunning = _isApplicationRunning(context);
 //            Log.e("onReceive", isAppRunning ? "running" : "not running");
 
-            if (isAppRunning) {
+//            if (isAppRunning) {
                 JPushModule.onReceive(context, intent);
-            }
-            else {
+//            }
+//            else {
                 if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
                     Bundle bundle = intent.getExtras();
 
@@ -268,7 +268,7 @@ public class JPushModule extends ReactContextBaseJavaModule {
                     launchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
                     context.startActivity(launchIntent);
                 }
-            }
+//            }
         }
 
         private boolean _isApplicationRunning(Context context) {

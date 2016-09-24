@@ -32,8 +32,11 @@ export default class JPushNotification {
     }
 
     static popInitialNotification() {
-        const initialNotification = _initialNotification &&
-            new JPushNotification(_initialNotification);
+        if (typeof _initialNotification === 'string') {
+          return JSON.parse(_initialNotification);
+        }
+        const initialNotification = _initialNotification; /*&&
+            new JPushNotification(_initialNotification);*/
         _initialNotification = null;
         return initialNotification;
     }
@@ -71,11 +74,11 @@ export default class JPushNotification {
             _notifHandlers.push(listener)
             return listener;
         }
-        
+
         if (type === JpushEventOpenMessage && _initialNotification) {
             handler(this.popInitialNotification())
         }
-        
+
         const listener = DeviceEventEmitter.addListener(
             type,
             (note) => {
@@ -179,5 +182,3 @@ function checkListenerType(type) {
         'JPushNotification only supports `JpushEventDidLoginNotification`, `JpushEventReceiveMessage` ,`JpushEventOpenMessage`, `JpushEventReceiveCustomMessage`, events'
     );
 }
-
-
